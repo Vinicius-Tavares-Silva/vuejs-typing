@@ -1,10 +1,5 @@
-import { App, DirectiveBinding, Directive } from 'vue';
-
-const typing: Directive = {
-  beforeMount: (el: HTMLElement, binding: DirectiveBinding) => {
-    el.style.backgroundColor = binding.value;
-  }
-}
+import { App } from 'vue';
+import typing from './directive.ts'
 
 export default {
   install: (app: App, _options: unknown) => {
