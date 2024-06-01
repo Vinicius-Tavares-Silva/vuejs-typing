@@ -1,32 +1,61 @@
-import { DirectiveBinding } from 'vue';
+import { MyDirectiveBinding, DirectiveConfig} from './types'
 
-interface MyDirectiveBinding extends DirectiveBinding {
-  value: {
-    text: string;
-    typeSpeed: number;
-  };
+const defaultConfig: DirectiveConfig = {
+  text: '',
+  typeSpeed: 100,
+  hasCaret: true,
+  caretSymbol: '|',
+  caret: null,
+  wordSplit: false,
 }
 
-function simTyping(el: HTMLElement, binding: MyDirectiveBinding, index: number = 0) {
-  const { text, typeSpeed } = binding.value;
-  const caret = document.createElement('span');
-  caret.classList.add('blink');
-  caret.id = 'caret';
-  caret.innerHTML = '|';
-  index === 0 && (el.innerHTML = '');
-  const existingCaret = el.querySelector('#caret');
-  if (existingCaret) {
-    existingCaret.remove();
+function setupDirective(el: HTMLElement, binding: MyDirectiveBinding) {
+  if (typeof binding.value !== 'object' && typeof binding.value !== 'string') {
+    throw new Error('Invalid binding value')
   }
+  const userConfig = typeof binding.value == 'string' ? { text: binding.value } : binding.value
+  const config = { ...defaultConfig, ...userConfig }
+  const { text, hasCaret, caretSymbol, caret, wordSplit } = config
+
+  config.text = wordSplit ? (typeof text === 'string' ? text.split(' ') : text) : text
+
+  if (hasCaret && !caret) {
+    const caret = document.createElement('span')
+    caret.id = 'caret'
+    caret.innerHTML = caretSymbol
+    el.innerHTML = ''
+    config.caret = caret
+  }
+
+  return config
+}
+
+function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, displayCaret: boolean = true) {
+  const { text, typeSpeed, wordSplit, caret } = config
+  index === 0 && (el.innerHTML = '')
+
   if (index < text.length) {
-    el.innerHTML += text[index];
-    el.appendChild(caret);
     setTimeout(() => {
-      simTyping(el, binding, index + 1);
-    }, typeSpeed);
+      if (caret && !displayCaret) {
+        caret.remove();
+      }
+      const textToInsert = wordSplit ? text[index] + ' ' : text[index]
+      el.innerHTML += textToInsert
+      if (caret && displayCaret) {
+        el.appendChild(caret)
+      }
+      simTyping(el, config, index + 1, !displayCaret)
+    }, typeSpeed)
+  }
+
+  if (index === text.length) {
+    if (caret) {
+      caret.remove()
+    }
   }
 }
 
 export default function (el: HTMLElement, binding: MyDirectiveBinding) {
-  simTyping(el, binding);
+  const directiveConfig = setupDirective(el, binding)
+  simTyping(el, directiveConfig)
 }
