@@ -7,9 +7,9 @@ Vue Typing is a lightweight directive compatible with both Vue 2 and Vue 3. It s
 
 
 
-## Installation Guide for Vue Directive
+## Installation Guide
 
-This guide will help you install and use the custom Vue directive in your Vue.js project.
+This guide will help you install and use the directive in your Vue.js project.
 
 ### Prerequisites
 
@@ -71,7 +71,7 @@ You can now use the directive in your Vue template:
 Or with an object configuration:
 
 ```vue
-<div v-v-typing="{ text: 'Hello World', typeSpeed: 100, hasCaret: true, caretSymbol: '|', wordSplit: false }"></div>
+<div v-typing="{ text: 'Hello World', typeSpeed: 100, hasCaret: true, caretSymbol: '|', wordSplit: false }"></div>
 ```
 
 ### Configuration
