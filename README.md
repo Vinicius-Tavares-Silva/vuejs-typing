@@ -1,4 +1,11 @@
-# README
+<h1 align="center">
+Vue-Typing
+</h1>
+<p align="center">
+Vue Typing is a lightweight directive compatible with both Vue 2 and Vue 3. It simulates the typing of text for any HTML tag, providing a dynamic typing effect. It's perfect for creating typing animations in your Vue.js applications.
+</p>
+
+
 
 ## Installation Guide for Vue Directive
 
@@ -74,6 +81,6 @@ Or with an object configuration:
 | text        | string  | ''      | The text to be typed out.                                                   |
 | typeSpeed   | number  | 100     | The speed at which the text is typed out.                                   |
 | hasCaret    | boolean | true    | Whether to display a caret at the end of the typing.                        |
-| caretSymbol | string  | '|'     | The symbol to use for the caret.                                            |
+| caretSymbol | string  | 'I'     | The symbol to use for the caret.                                            |
 | wordSplit   | boolean | false   | Whether to split the text into words. If true, each word is typed out separately. |
 | caret       | object  | null    | The caret object. This is managed internally and should not be set manually. |
