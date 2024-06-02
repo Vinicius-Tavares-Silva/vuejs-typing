@@ -1,6 +1,6 @@
 {
   "name": "vue-typing",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./dist/vue-typing.umd.js",
   "module": "./dist/vue-typing.es.js",
   "exports": {

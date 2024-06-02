@@ -6,3 +6,5 @@ export default {
     app.directive('typing', typing)
   }
 }
+
+export { typing }

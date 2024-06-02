@@ -16,7 +16,7 @@ This guide will help you install and use the directive in your Vue.js project.
 Ensure you have the following installed on your system:
 
 - Node.js and npm
-- Vue.js
+- Vue.js/Nuxt
 
 ### Installation
 
@@ -51,7 +51,7 @@ You can use the directive either globally in your Vue application or locally in 
    Import the directive and use it in your Vue component:
 
    ```javascript
-   import typing from 'vue-typing'
+   import { typing } from 'vue-typing'
 
    export default {
      directives: {
@@ -79,7 +79,7 @@ Or with an object configuration:
 | Property    | Type    | Default | Description                                                                 |
 |-------------|---------|---------|-----------------------------------------------------------------------------|
 | text        | string  | ''      | The text to be typed out.                                                   |
-| typeSpeed   | number  | 100     | The speed at which the text is typed out.                                   |
+| typeSpeed   | number  | 100     | The speed at which the text is typed out. (ms)                              |
 | hasCaret    | boolean | true    | Whether to display a caret at the end of the typing.                        |
 | caretSymbol | string  | 'I'     | The symbol to use for the caret.                                            |
 | wordSplit   | boolean | false   | Whether to split the text into words. If true, each word is typed out separately. |

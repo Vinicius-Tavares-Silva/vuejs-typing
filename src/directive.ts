@@ -9,7 +9,7 @@ const defaultConfig: DirectiveConfig = {
   wordSplit: false,
 }
 
-function setupDirective(el: HTMLElement, binding: MyDirectiveBinding) {
+function setupDirective(binding: MyDirectiveBinding) {
   if (typeof binding.value !== 'object' && typeof binding.value !== 'string') {
     throw new Error('Invalid binding value')
   }
@@ -23,7 +23,6 @@ function setupDirective(el: HTMLElement, binding: MyDirectiveBinding) {
     const caret = document.createElement('span')
     caret.id = 'caret'
     caret.innerHTML = caretSymbol
-    el.innerHTML = ''
     config.caret = caret
   }
 
@@ -56,6 +55,6 @@ function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, 
 }
 
 export default function (el: HTMLElement, binding: MyDirectiveBinding) {
-  const directiveConfig = setupDirective(el, binding)
+  const directiveConfig = setupDirective(binding)
   simTyping(el, directiveConfig)
 }
