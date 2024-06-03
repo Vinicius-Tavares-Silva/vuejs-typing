@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'vue-typing',
-      fileName: (format) => `vue-typing.${format}.js`,
+      name: 'vuejs-typing',
+      fileName: (format) => `vuejs-typing.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],

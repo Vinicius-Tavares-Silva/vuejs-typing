@@ -1,5 +1,5 @@
 <h1 align="center">
-Vue-Typing
+VueJs-Typing
 </h1>
 <p align="center">
 Vue Typing is a lightweight directive compatible with both Vue 2 and Vue 3. It simulates the typing of text for any HTML tag, providing a dynamic typing effect. It's perfect for creating typing animations in your Vue.js applications.
@@ -25,7 +25,7 @@ Ensure you have the following installed on your system:
    Open your terminal and run the following command:
 
    ```bash
-   npm install vue-typing
+   npm install vuejs-typing
    ```
 
 ### Usage
@@ -39,7 +39,7 @@ You can use the directive either globally in your Vue application or locally in 
    ```javascript
    import { createApp } from 'vue'
    import App from './App.vue'
-   import typing from 'vue-typing'
+   import typing from 'vuejs-typing'
 
    const app = createApp(App)
 
@@ -51,7 +51,7 @@ You can use the directive either globally in your Vue application or locally in 
    Import the directive and use it in your Vue component:
 
    ```javascript
-   import { typing } from 'vue-typing'
+   import { typing } from 'vuejs-typing'
 
    export default {
      directives: {

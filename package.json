@@ -1,12 +1,12 @@
 {
-  "name": "vue-typing",
-  "version": "1.0.0",
-  "main": "./dist/vue-typing.umd.js",
-  "module": "./dist/vue-typing.es.js",
+  "name": "vuejs-typing",
+  "version": "1.0.1",
+  "main": "./dist/vuejs-typing.umd.js",
+  "module": "./dist/vuejs-typing.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-typing.es.js",
-      "require": "./dist/vue-typing.umd.js"
+      "import": "./dist/vuejs-typing.es.js",
+      "require": "./dist/vuejs-typing.umd.js"
     }
   },
   "scripts": {
