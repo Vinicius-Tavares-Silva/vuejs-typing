@@ -74,6 +74,11 @@ Or with an object configuration:
 <div v-typing="{ text: 'Hello World', typeSpeed: 100, hasCaret: true, caretSymbol: '|', wordSplit: false }"></div>
 ```
 
+<p align="center">
+<img src="https://github.com/Vinicius-Tavares-Silva/vuejs-typing/blob/master/src/demo/vuejs-typing-gif.gif" alt="Vuejs-Typing demo gif"/>
+</p>
+
+
 ### Configuration
 
 | Property    | Type    | Default | Description                                                                 |
