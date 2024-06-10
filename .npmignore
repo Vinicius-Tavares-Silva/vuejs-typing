@@ -9,7 +9,11 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
+vscode
+.vscode
 *.local
+tsconfig.*
+vite.config.ts
 
 src
 

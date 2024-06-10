@@ -31,7 +31,6 @@ function setupDirective(binding: MyDirectiveBinding) {
 
 function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, displayCaret: boolean = true) {
   const { text, typeSpeed, wordSplit, caret } = config
-  index === 0 && (el.innerHTML = '')
 
   if (index < text.length) {
     setTimeout(() => {
@@ -54,7 +53,23 @@ function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, 
   }
 }
 
-export default function (el: HTMLElement, binding: MyDirectiveBinding) {
-  const directiveConfig = setupDirective(binding)
-  simTyping(el, directiveConfig)
+export default {
+  created: function (el: HTMLElement, binding: MyDirectiveBinding) {
+    const directiveConfig = setupDirective(binding)
+    el.innerHTML = ''
+    simTyping(el, directiveConfig)
+  },
+  updated: function () {
+    return
+  },
+
+  //for V 2.x
+  bind: function (el: HTMLElement, binding: MyDirectiveBinding) {
+    const directiveConfig = setupDirective(binding)
+    el.innerHTML = ''
+    simTyping(el, directiveConfig)
+  },
+  componentUpdated: function () {
+    return
+  },
 }
