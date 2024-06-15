@@ -89,3 +89,5 @@ Or with an object configuration:
 | caretSymbol | string  | 'I'     | The symbol to use for the caret.                                            |
 | wordSplit   | boolean | false   | Whether to split the text into words. If true, each word is typed out separately. |
 | caret       | object  | null    | The caret object. This is managed internally and should not be set manually. |
+| onStart     | function | null   | A function to be called when the typing starts.                             |
+| onEnd       | function | null   | A function to be called when the typing ends.                               |

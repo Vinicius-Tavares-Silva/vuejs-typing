@@ -7,6 +7,8 @@ const defaultConfig: DirectiveConfig = {
   caretSymbol: '|',
   caret: null,
   wordSplit: false,
+  onStart: () => {},
+  onEnd: () => {},
 }
 
 function setupDirective(binding: MyDirectiveBinding) {
@@ -15,22 +17,23 @@ function setupDirective(binding: MyDirectiveBinding) {
   }
   const userConfig = typeof binding.value == 'string' ? { text: binding.value } : binding.value
   const config = { ...defaultConfig, ...userConfig }
-  const { text, hasCaret, caretSymbol, caret, wordSplit } = config
+  const { text, hasCaret, caretSymbol, caret, wordSplit, onStart } = config
 
   config.text = wordSplit ? (typeof text === 'string' ? text.split(' ') : text) : text
 
   if (hasCaret && !caret) {
     const caret = document.createElement('span')
     caret.id = 'caret'
-    caret.innerHTML = caretSymbol
+    caret.textContent = caretSymbol
     config.caret = caret
   }
+  onStart()
 
   return config
 }
 
 function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, displayCaret: boolean = true) {
-  const { text, typeSpeed, wordSplit, caret } = config
+  const { text, typeSpeed, wordSplit, caret, onEnd } = config
 
   if (index < text.length) {
     setTimeout(() => {
@@ -38,7 +41,7 @@ function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, 
         caret.remove();
       }
       const textToInsert = wordSplit ? text[index] + ' ' : text[index]
-      el.innerHTML += textToInsert
+      el.textContent += textToInsert
       if (caret && displayCaret) {
         el.appendChild(caret)
       }
@@ -47,6 +50,7 @@ function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, 
   }
 
   if (index === text.length) {
+    onEnd()
     if (caret) {
       caret.remove()
     }

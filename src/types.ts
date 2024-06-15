@@ -8,6 +8,8 @@ interface MyDirectiveBinding extends DirectiveBinding {
     hasCaret: boolean
     caretSymbol: string
     wordSplit: boolean
+    onStart: () => void
+    onEnd: () => void
   } | string
 }
 
@@ -18,6 +20,8 @@ interface DirectiveConfig {
   caretSymbol: string
   caret: HTMLSpanElement | null
   wordSplit: boolean
+  onStart: () => void
+  onEnd: () => void
 }
 
 export type {
