@@ -41,7 +41,7 @@ function simTyping(el: HTMLElement, config: DirectiveConfig, index: number = 0, 
         caret.remove();
       }
       const textToInsert = wordSplit ? text[index] + ' ' : text[index]
-      el.textContent += textToInsert
+      el.innerHTML += textToInsert
       if (caret && displayCaret) {
         el.appendChild(caret)
       }
