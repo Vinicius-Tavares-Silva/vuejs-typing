@@ -91,3 +91,6 @@ Or with an object configuration:
 | caret       | object  | null    | The caret object. This is managed internally and should not be set manually. |
 | onStart     | function | null   | A function to be called when the typing starts.                             |
 | onEnd       | function | null   | A function to be called when the typing ends.                               |
+
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/5614-shield.svg)](https://madewithvuejs.com/p/vue-typing/shield-link)
+
